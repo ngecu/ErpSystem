@@ -12,7 +12,7 @@ import { auth, signInWithEmailAndPassword,registerWithGoogle, signInWithGoogle }
 import { USER_REGISTER_FAIL } from '../constants/userConstants'
 import FileUpload from '../components/ImageUpload'
 
-const RegisterScreen = ({ location, history }) => {
+const RegisterScreen = ({history }) => {
   const [firstName, setFirstname] = useState('')
   const [secondName, setSecondname] = useState('')
 
@@ -28,13 +28,12 @@ const RegisterScreen = ({ location, history }) => {
   const userRegister = useSelector((state) => state.userRegister)
   const { loading, error, userInfo } = userRegister
 
-  const redirect = location.search ? location.search.split('=')[1] : '/'
 
   useEffect(() => {
     if (userInfo) {
-      history.push(redirect)
+     
     }
-  }, [history, userInfo, redirect])
+  }, [history, userInfo, ])
 
  const submitHandler = (e) => {
     e.preventDefault()
@@ -75,7 +74,7 @@ const RegisterScreen = ({ location, history }) => {
 
       <Button
   onClick={() => {handleSIgnup()}}
->Google Register </Button>
+>  Google Register </Button>
 
 <Form.Group controlId='location'>
           <Form.Label>Location</Form.Label>
@@ -162,7 +161,7 @@ const RegisterScreen = ({ location, history }) => {
       <Row className='py-3'>
         <Col>
           Have an Account?{' '}
-          <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+          <Link to={'/login'}>
             Login
           </Link>
         </Col>
