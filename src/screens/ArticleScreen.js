@@ -40,7 +40,6 @@ const ArticleScreen = ({  history }) => {
   return (
     <>
    
-      <FormContainer>
         <h1>Article Details</h1>
         {loading ? (
           <Loader />
@@ -57,7 +56,6 @@ const ArticleScreen = ({  history }) => {
 
          </Row>
         )}
-      </FormContainer>
     </>
   )
 }

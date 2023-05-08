@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Badge } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -26,7 +26,7 @@ const NewStoryScreen = ({ match, history }) => {
     "Search Bears with Paint Brushes the Starry Night, painted by Vincent Van Gogh.."
   );
   
-  const [genre_selected,setGenre] = useState('')
+  const [genre_selected,setGenreSelection] = useState('')
   const [images, setImages] = useState([]);
   const [projectName,setProjectName]= useState('')
   const [articleName,setArticleName]= useState('')
@@ -34,7 +34,6 @@ const NewStoryScreen = ({ match, history }) => {
   const [articleBody,setArticlebody] = useState('')
   const [message, setMessage] = useState(null)
   const [loader,setLoad] = useState(false)
-
   const projectListByUser = useSelector((state) => state.projectListByUser)
   const { loading_projects,projects } = projectListByUser
 
@@ -121,7 +120,7 @@ const NewStoryScreen = ({ match, history }) => {
 
   const download_image = async (url_object)=>{
     try{
-      const { data } = await axios.post(`https://text-image-backend.onrender.com/api/image/`,{url_object,articleName,projectName,user:userInfo._id})
+      const { data } = await axios.post(`https://text-image-backend.onrender.com/api/image/`,{url_object,articleName,projectName,user:userInfo._id,genre:genre_selected})
 
       console.log(data);
       setArticlebody(data)
@@ -157,15 +156,15 @@ const NewStoryScreen = ({ match, history }) => {
 
   return (
     <>
-	{loading_projects ? <Loader/> : (<DashboardHeadComponent projects={projects} articles={articles} userInfo={userInfo} /> )}
+	{/* {loading_projects ? <Loader/> : (<DashboardHeadComponent projects={projects} articles={articles} userInfo={userInfo} /> )} */}
 
 	<Row>
-    <SidebarComponent />
-    <Col md={9}>
+    {/* <SidebarComponent /> */}
+    <Col md={12}>
   <Form onSubmit={submitHandler}>
   {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
-
+<h1>Create An Article</h1>
         <Form.Group controlId='name'>
           <Form.Label>Project Name</Form.Label>
           <Form.Control
@@ -176,6 +175,20 @@ const NewStoryScreen = ({ match, history }) => {
           ></Form.Control>
         </Form.Group>
 
+        <>{genres.map((g,i)=>(<><Badge className='btn btn-primary m-2 p-2' onClick={(e)=>{setGenreSelection(g)}}>{g}</Badge></>))}</>
+
+        <Form.Group controlId='name'>
+          <Form.Label>Genre</Form.Label>
+          <Form.Control
+            type='name'
+            disa
+            placeholder='Enter Article Name'
+            value={genre_selected}
+          ></Form.Control>
+        </Form.Group>
+
+        
+        
         <Form.Group controlId='name'>
           <Form.Label>Atricle Name</Form.Label>
           <Form.Control

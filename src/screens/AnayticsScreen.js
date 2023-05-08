@@ -32,11 +32,11 @@ const AnalyticsScreen = ({ location, history }) => {
 
   return (
 <>
-{loading_projects ? <Loader/> : (<DashboardHeadComponent projects={projects} articles={articles} userInfo={userInfo} /> )}
+{/* {loading_projects ? <Loader/> : (<DashboardHeadComponent projects={projects} articles={articles} userInfo={userInfo} /> )} */}
 
 <Row>
-<SidebarComponent />
-        <Col md={9}>
+{/* <SidebarComponent /> */}
+        <Col md={12}>
           <Col md={12}>
           <div className="card">
             <div className="card-body">

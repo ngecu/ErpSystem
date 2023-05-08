@@ -104,7 +104,7 @@ const RegisterScreen = ({history }) => {
           <Form.Label>Second Name</Form.Label>
           <Form.Control
             type='name'
-            placeholder='Enter First name'
+            placeholder='Enter Last name'
             value={secondName}
             onChange={(e) => setSecondname(e.target.value)}
           ></Form.Control>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route,Routes, createBrowserRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -14,10 +14,14 @@ import MyProjectsScreen from './screens/MyProjectsScreen'
 import MyArticlesScreen from './screens/MyArticlesScreen.js'
 import ProjectScreen from './screens/ProjectScreen.js'
 import ArticleScreen from './screens/ArticleScreen'
+// import { createBrowserHistory } from 'history'
 
 const App = () => {
+  
+  const history = createBrowserRouter
+
   return (
-    <Router>
+    <Router history={history}>
       <Header />
       <main className='py-3'>
         <Container>
@@ -29,14 +33,15 @@ const App = () => {
           <Route path="/new_story" element={<NewStoryScreen/>} />
           <Route path="/projects" element={<MyProjectsScreen/>} />
           <Route path="/articles" element={<MyArticlesScreen/>} />
-          <Route path="/profile" element={<ProfileScreen/>} />
+          {/* <Route path="/profile" element={<ProfileScreen/>} /> */}
           <Route path="/project/:id" element={<ProjectScreen/>} />
           <Route path="/article/:id" element={<ArticleScreen/>} />
           
 
 
+          <Route path="/" element={<ProfileScreen/>} exact />
 
-          <Route path='/' element={<HomeScreen/>} exact />
+          {/* <Route path='/' element={<HomeScreen/>} exact /> */}
           </Routes>
         </Container>
       </main>

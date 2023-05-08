@@ -21,7 +21,7 @@ const Header = () => {
       <Navbar  expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand> <img class="light-mode-item navbar-brand-item" src="https://Ola-Image-Ai.webestica.com/assets/images/logo.svg" alt="Ola-image-api"/></Navbar.Brand>
+            <Navbar.Brand> Ola-image-api</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -38,11 +38,15 @@ Analytics
 </Nav.Link>
 </LinkContainer>
 
-<LinkContainer to='/profile' class="nav-link bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0">
+{/* <LinkContainer to='/profile' class="nav-link bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0">
 <Nav.Link>
 {userInfo.firstName}
 </Nav.Link>
-</LinkContainer>
+</LinkContainer> */}
+
+<Nav.Link onClick={logoutHandler}>
+Log Out
+</Nav.Link>
 
                 </>
               ) : (
