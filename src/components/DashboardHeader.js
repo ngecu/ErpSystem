@@ -26,7 +26,8 @@ export default function DashboardHeadComponent({projects,userInfo,articles}) {
 						
 						<div class="col-auto mt-4 mt-md-0">
 							<div class="avatar avatar-xxl mt-n3">
-								<img class="avatar-img rounded-circle border border-white border-3 shadow" src={`https://text-image-backend.onrender.com${userInfo.profile_pic}`} alt=""/>
+								{"https" in userInfo.profile_pic ? <img class="avatar-img rounded-circle border border-white border-3 shadow" src={`${userInfo.profile_pic}`} alt=""/> : <img class="avatar-img rounded-circle border border-white border-3 shadow" src={`https://text-image-backend.onrender.com${userInfo.profile_pic}`} alt=""/> }
+								
 							</div>
 						</div>
 						
