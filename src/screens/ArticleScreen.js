@@ -24,13 +24,18 @@ const ArticleScreen = ({  history }) => {
   const articleDetails = useSelector((state) => state.articleDetails)
   const { loading_article, error, article } = articleDetails
 
+  const userLogin = useSelector((state) => state.userLogin)
+  const {userInfo } = userLogin
+
+
+  if (!userInfo) {
+    document.location.href = '/'
+    // history.push(redirect)
+}
+
   useEffect(() => {
         dispatch(getArticleById(articleId))
     }, [dispatch, articleId])
-
-
-
-
 
   return (
     <>

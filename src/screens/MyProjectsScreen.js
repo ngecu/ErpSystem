@@ -34,6 +34,10 @@ const MyProjectsScreen = ({ match }) => {
     success: successDelete,
   } = projectDelete
 
+  if (!userInfo) {
+	document.location.href = '/'
+	// history.push(redirect)
+}
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {

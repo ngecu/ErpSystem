@@ -25,6 +25,10 @@ const AnalyticsScreen = ({ location, history }) => {
   const articleListByUser = useSelector((state) => state.articleListByUser)
   const { loading_articles,articles } = articleListByUser
 
+  if (!userInfo) {
+    document.location.href = '/'
+    // history.push(redirect)
+}
 
   return (
 <>

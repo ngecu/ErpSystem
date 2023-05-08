@@ -31,7 +31,8 @@ const RegisterScreen = ({history }) => {
 
   useEffect(() => {
     if (userInfo) {
-     
+      document.location.href = '/'
+      // history.push(redirect)
     }
   }, [history, userInfo, ])
 

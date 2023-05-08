@@ -33,6 +33,11 @@ const MyProjectsScreen = ({ match }) => {
     success: successDelete,
   } = articleDelete
 
+  if (!userInfo) {
+	document.location.href = '/'
+	// history.push(redirect)
+}
+
 
   useEffect(() => {
 	dispatch(getProjectsByUser(userInfo?._id))
@@ -45,6 +50,8 @@ const deleteHandler = (id) => {
       dispatch(deleteArticle(id))
     }
   }
+
+
 
     return(
 <> 

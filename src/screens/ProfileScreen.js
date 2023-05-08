@@ -19,7 +19,7 @@ import {
 const ProfileScreen = ({history }) => {
 
   const userDetails = useSelector((state) => state.userDetails)
-  const { loading, error, user,firstName } = userDetails
+  const { loading, error, user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -76,25 +76,15 @@ const ProfileScreen = ({history }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      history.push('/login')
+        document.location.href = '/'
+        // history.push(redirect)
     } else {
       if (!user || !user.firstName || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
-        if(user){
-          setFirstnameU(user.firstName)
-          setSecondnameU(user.secondName)
-          setEmail(user.email)
-          setLocation(user.userLocation)
-        }
       } else {
-        if(user){
-          setFirstnameU(user.firstName)
-          setSecondnameU(user.secondName)
-          setEmail(user.email)
-          setLocation(user.userLocation)
-        }
-        
+        setFirstnameU(user.firstName)
+        setSecondnameU(user.secondName)
         setEmail(user.email)
       }
     }
