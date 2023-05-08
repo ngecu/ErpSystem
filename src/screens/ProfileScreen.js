@@ -220,7 +220,7 @@ const ProfileScreen = ({history }) => {
       <Col md={9}>
         <h1>My Articles</h1>
 
-        <table class="table table-dark-gray align-middle p-4 mb-0">
+        <table class="table w-100 table-dark-gray align-middle p-4 mb-0">
 						<thead>
 							<tr>
 								<th scope="col" class="border-0 rounded-start">Article Title</th>

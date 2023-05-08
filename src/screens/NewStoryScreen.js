@@ -67,7 +67,7 @@ const NewStoryScreen = ({ match, history }) => {
    setLoad(true)
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt :`write a 3 pararaph article about : ${articleName}`,
+      prompt :`write a 3 pararaph article about : ${articleName} with a genre of ${genre_selected}`,
       temperature: 0,
       max_tokens: 1000,
       top_p: 1.0,
@@ -175,14 +175,15 @@ const NewStoryScreen = ({ match, history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <>{genres.map((g,i)=>(<><Badge className='btn btn-primary m-2 p-2' onClick={(e)=>{setGenreSelection(g)}}>{g}</Badge></>))}</>
+       
 
         <Form.Group controlId='name'>
           <Form.Label>Genre</Form.Label>
+          <>{genres.map((g,i)=>(<><Badge className='btn btn-primary m-2 p-2' onClick={(e)=>{setGenreSelection(g)}}>{g}</Badge></>))}</>
           <Form.Control
             type='name'
             disa
-            placeholder='Enter Article Name'
+            placeholder='Selected Genre will be here'
             value={genre_selected}
           ></Form.Control>
         </Form.Group>
@@ -198,10 +199,12 @@ const NewStoryScreen = ({ match, history }) => {
             onChange={(e) => setArticleName(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
-        <Button type='submit' variant='primary'>
+{genre_selected.length > 0 ?  <Button type='submit' variant='primary'>
           Generate Article
-        </Button>
+        </Button> : <></>
+        
+      }
+       
 
         </Form>
 
