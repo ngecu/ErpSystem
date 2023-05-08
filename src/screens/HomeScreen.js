@@ -84,73 +84,7 @@ const HomeScreen = () => {
 	</div>
 </div>
 
-{/* <div class="row">
-	<div class="col-12">
-		<div class="card border bg-transparent rounded-3 mt-5">
-			<div class="card-header bg-transparent border-bottom">
-				<div class="d-sm-flex justify-content-sm-between align-items-center">
-					<h3 class="mb-2 mb-sm-0">My Stories</h3>
-					<a href="#" class="btn btn-sm btn-primary-soft mb-0">View all</a>
-				</div>
-			</div>
 
-			<div class="card-body">
-				<div class="table-responsive border-0 rounded-3">
-					<table class="table table-dark-gray align-middle p-4 mb-0">
-						<thead>
-							<tr>
-								<th scope="col" class="border-0 rounded-start">Story Prompt</th>
-								<th scope="col" class="border-0">Period</th>
-								<th scope="col" class="border-0 rounded-end">Action</th>
-							</tr>
-						</thead>
-						<tbody>		
-							{stories?.map((story,i)=>(
-								<tr>
-							
-							<td>
-								<div class="d-flex align-items-center">
-								
-									<div class="w-60px">
-										<img src="" class="rounded" alt=""/>
-									</div>
-									
-									<h6 class="mb-0 ms-2 table-responsive-title">	
-										<a href="#">{story.title}</a>
-									</h6>
-								</div>
-							</td>
-							
-							
-							
-							<td>
-								<span class="badge bg-primary bg-opacity-10 text-primary">4 months</span>
-							</td>
-						
-							<td>
-								<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-								<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-							</td>
-						</tr>
-							))}		
-							
-
-		
-							
-						
-						</tbody>
-						
-					</table>
-					
-				</div>
-
-				
-			
-			</div>
-
-		</div>
-	</div>
-</div> */}
 
 </div>
 
