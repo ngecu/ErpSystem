@@ -62,9 +62,10 @@ const ProfileScreen = ({history }) => {
         },
       }
 
-      const { data } = await axios.post('/api/upload', formData, config)
+      const { data } = await axios.post('https://text-image-backend.onrender.com/api/upload', formData, config)
 
       setImage(data)
+      console.log(data)
       setUploading(false)
     } catch (error) {
       console.error(error)

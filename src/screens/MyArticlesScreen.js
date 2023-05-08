@@ -69,7 +69,7 @@ const deleteHandler = (id) => {
 						<thead>
 							<tr>
 								<th scope="col" class="border-0 rounded-start">Article Title</th>
-								<th scope="col" class="border-0">Period</th>
+								<th scope="col" class="border-0">Date</th>
 								<th scope="col" class="border-0 rounded-end">Action</th>
 							</tr>
 						</thead>
@@ -94,7 +94,7 @@ const deleteHandler = (id) => {
 							
 							
 							<td>
-							<span class="badge bg-primary bg-opacity-10 text-light">{article.createdAt}</span>
+							<span class="badge bg-primary bg-opacity-10 text-light">{new Date(`${article.createdAt}`).toLocaleString()}</span>
 							</td>
 						
 							<td>
@@ -109,7 +109,7 @@ const deleteHandler = (id) => {
                       className='btn-sm'
                       onClick={() => deleteHandler(article._id)}
                     >
-                      <i className='fas fa-trash'></i>
+                      <i className='fas fa-trash'></i> deletee
                     </Button>								</td>
 						</tr>
 							))}		

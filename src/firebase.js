@@ -67,7 +67,7 @@ const signInWithGoogle = async (dispatch) => {
     
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    // alert(err.message);
     return({error:err.message})
   }
 };
@@ -95,7 +95,9 @@ const registerWithGoogle = async (dispatch) => {
     }
   } catch (err) {
     console.error(err);
+    
     alert(err.message);
+    return({error:err.message})
   }
 };
 
