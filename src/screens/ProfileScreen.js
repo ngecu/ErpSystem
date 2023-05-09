@@ -134,7 +134,7 @@ const ProfileScreen = ({history }) => {
             <Col md={12}>
                   <Form.Group controlId='name'>
 
-                  { userInfo.profile_pic.includes("https") ? <img class="avatar-img  border border-white border-3 shadow" style={{width:"100%",height:"30px"}} src={`${userInfo.profile_pic}`} alt=""/> : <img class="avatar-img border border-white border-3 shadow" src={`https://text-image-backend.onrender.com${userInfo.profile_pic}`} style={{width:"100%",height:"30px"}} alt=""/> }
+                  { userInfo.profile_pic.includes("https") ? <img class="avatar-img  border border-white border-3 shadow" style={{width:"100%",height:"200px"}} src={`${userInfo.profile_pic}`} alt=""/> : <img class="avatar-img border border-white border-3 shadow" src={`https://text-image-backend.onrender.com${userInfo.profile_pic}`} style={{width:"100%",height:"200px"}} alt=""/> }
 
                 </Form.Group>
               </Col>
