@@ -27,7 +27,11 @@ const Header = () => {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
             
-
+            <LinkContainer to='/about' class="nav-link bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0">
+                <Nav.Link>
+                About
+                </Nav.Link>
+              </LinkContainer>
             
             
               {userInfo ? (
@@ -51,11 +55,7 @@ Log Out
                 </>
               ) : (
 <>
-                <LinkContainer to='/about' class="nav-link bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0">
-                <Nav.Link>
-                About
-                </Nav.Link>
-              </LinkContainer>
+
 
                 <LinkContainer to='/login'>
                   <Nav.Link>
