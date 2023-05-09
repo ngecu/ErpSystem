@@ -25,7 +25,7 @@ const ArticleScreen = ({  history }) => {
   const dispatch = useDispatch()
 
   const articleDetails = useSelector((state) => state.articleDetails)
-  const { loading_article, error, article } = articleDetails
+  const { loading_articles, error, article } = articleDetails
 
   const userLogin = useSelector((state) => state.userLogin)
   const {userInfo } = userLogin
@@ -52,6 +52,9 @@ const ArticleScreen = ({  history }) => {
       else{
         if (!article.articleBody || article._id == articleId) {
             dispatch(getArticleById(articleId))
+            setArticlebody(article.articleBody)
+            setGenre(article.genre)
+            setarticleTitle(article.articleTitle)
         } else {
             setArticlebody(article.articleBody)
             setGenre(article.genre)
@@ -65,6 +68,7 @@ const ArticleScreen = ({  history }) => {
     const submitHandler = (e) =>{
         e.preventDefault()
         dispatch(updateArticle({
+          user:userInfo._id,
             _id:articleId,
             articleBody,
             articleTitle,
@@ -81,7 +85,7 @@ const ArticleScreen = ({  history }) => {
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 
-        {loading ? (
+        {loading_articles ? (
           <Loader />
         ) : error ? (
           <Message variant='danger'>{error}</Message>

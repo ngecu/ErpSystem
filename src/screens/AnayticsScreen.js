@@ -12,8 +12,8 @@ import { USER_LOGIN_FAIL } from '../constants/userConstants'
 import SidebarComponent from '../components/SidebarComponent'
 import DashboardHeadComponent from '../components/DashboardHeader'
 import axios from 'axios'
-import DemoBar from '../components/BarChatComponent'
 import DemoPie from '../components/PiechartComponent'
+import DemoLiquid from '../components/DemoLiquidComponent'
 const AnalyticsScreen = ({ location, history }) => {
  
 
@@ -28,7 +28,7 @@ const AnalyticsScreen = ({ location, history }) => {
   const { loading_articles,articles } = articleListByUser
 
   const [genders,setGenders] = useState([])
-  const [graduates,setGraduates]= useState([])
+  const [percentt,setPercenttt]= useState(0)
   const [loading,setLoading]= useState(false)
 
   const getGender = async () =>{
@@ -44,10 +44,13 @@ const AnalyticsScreen = ({ location, history }) => {
 
 
   }
-
+let percent = 0
   const getSuccessfullGraduates = async () =>{
     const {data} = await axios.get('https://text-image-backend.onrender.com/api/data/graduates')
-    setGraduates(data)
+    
+    percent = (parseInt(data.successfull_graduates.length)/parseInt(data.results.length)) * 100
+console.log("percentage is ",percent)
+    setPercenttt(percent)
     return true
      }
 
@@ -79,9 +82,10 @@ useEffect(()=>{
           <Col md={12}>
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Genders</h5>
+              <h5 className="card-title">Percentage of Graduated Students</h5>
               <p className="card-text">
-              <DemoBar data={genders} />
+             
+              <DemoLiquid percent={percentt} />
 
               </p>
             </div>
@@ -90,7 +94,7 @@ useEffect(()=>{
         <Col md={12}>
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">My Articles</h5>
+              <h5 className="card-title">Gender Distribution</h5>
               <p className="card-text">
               <DemoPie data={genders} />
               </p>

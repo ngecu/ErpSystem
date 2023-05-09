@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Pie } from '@ant-design/plots';
 
 const DemoPie = ({data}) => {
-  
+
   const config = {
     appendPadding: 10,
     data,
@@ -36,10 +36,11 @@ const DemoPie = ({data}) => {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         },
-        content: 'AntV\nG2Plot',
+        content: 'Gender Distribution',
       },
     },
   };
   return <Pie {...config} />;
 };
+
 export default DemoPie
