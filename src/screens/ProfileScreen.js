@@ -261,9 +261,17 @@ const ProfileScreen = ({history }) => {
 							</td>
 						
 							<td>
+
+              <LinkContainer to={`/article/${article._id}/edit`}>
+                      <Button variant='warning' className='btn-sm'>
+                        <i className='fas fa-edit'></i>
+						edit
+                      </Button>
+                    </LinkContainer>
+
 							<LinkContainer to={`/article/${article._id}`}>
                       <Button variant='light' className='btn-sm'>
-                        <i className='fas fa-edit'></i>
+                       
 						view
                       </Button>
                     </LinkContainer>

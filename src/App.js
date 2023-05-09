@@ -13,7 +13,8 @@ import NewStoryScreen from './screens/NewStoryScreen'
 import MyProjectsScreen from './screens/MyProjectsScreen'
 import MyArticlesScreen from './screens/MyArticlesScreen.js'
 import ProjectScreen from './screens/ProjectScreen.js'
-import ArticleScreen from './screens/ArticleScreen'
+import ArticleEditScreen from './screens/ArticleEditScreen.js'
+import ArticleScreen from './screens/ArticleEditScreen.js'
 // import { createBrowserHistory } from 'history'
 
 const App = () => {
@@ -35,7 +36,8 @@ const App = () => {
           <Route path="/articles" element={<MyArticlesScreen/>} />
           {/* <Route path="/profile" element={<ProfileScreen/>} /> */}
           <Route path="/project/:id" element={<ProjectScreen/>} />
-          <Route path="/article/:id" element={<ArticleScreen/>} />
+          <Route path="/article/:id" element={<ArticleScreen />} />
+          <Route path="/article/:id/edit" element={<ArticleEditScreen/>} />
           
 
 
