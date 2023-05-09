@@ -71,7 +71,7 @@ useEffect(()=>{
 },[])
   return (
 <>
-{/* {loading_projects ? <Loader/> : (<DashboardHeadComponent projects={projects} articles={articles} userInfo={userInfo} /> )} */}
+{loading ? <Loader/> : (
 
 <Row>
 {/* <SidebarComponent /> */}
@@ -99,6 +99,9 @@ useEffect(()=>{
         </Col>
         </Col>
       </Row>
+)}
+
+
 </>
   )
 }

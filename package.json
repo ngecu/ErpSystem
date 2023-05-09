@@ -2,8 +2,9 @@
   "name": "fr-rsdd",
   "version": "0.1.0",
   "proxy": "http://127.0.0.1:6000",
-    "private": true,
+  "private": true,
   "dependencies": {
+    "@ant-design/plots": "^1.2.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
