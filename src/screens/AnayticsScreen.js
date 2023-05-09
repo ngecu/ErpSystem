@@ -13,6 +13,7 @@ import SidebarComponent from '../components/SidebarComponent'
 import DashboardHeadComponent from '../components/DashboardHeader'
 import axios from 'axios'
 import DemoBar from '../components/BarChatComponent'
+import DemoPie from '../components/PiechartComponent'
 const AnalyticsScreen = ({ location, history }) => {
  
 
@@ -33,7 +34,7 @@ const AnalyticsScreen = ({ location, history }) => {
   const getGender = async () =>{
  const {data} = await axios.get('https://text-image-backend.onrender.com/api/data/gender')
  if (data) {
-  setGenders([{"gender":"males",value:data.males.length},{"gender":"females",value:data.females.length}])
+  setGenders([{type:"males",value:data.males.length},{type:"females",value:data.females.length}])
   console.log("data is",data)
   return true
  }
@@ -90,7 +91,9 @@ useEffect(()=>{
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">My Articles</h5>
-              <p className="card-text">{articles.length}</p>
+              <p className="card-text">
+              <DemoPie data={genders} />
+              </p>
             </div>
           </div>
         </Col>
