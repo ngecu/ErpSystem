@@ -44,26 +44,21 @@ const ArticleScreen = ({  history }) => {
     // history.push(redirect)
 }
 
-  useEffect(() => {
-    if (successUpdate) {
-        dispatch({ type: UPDATE_ARICLE_RESET })
-        document.location.href = '/'
-      }
-      else{
-        if (!article.articleBody || article._id == articleId) {
-            dispatch(getArticleById(articleId))
-            setArticlebody(article.articleBody)
-            setGenre(article.genre)
-            setarticleTitle(article.articleTitle)
-        } else {
-            setArticlebody(article.articleBody)
-            setGenre(article.genre)
-            setarticleTitle(article.articleTitle)
-        }
-      }
+useEffect(() => {
+  if (successUpdate) {
+    dispatch({ type: UPDATE_ARICLE_RESET });
+    document.location.href = '/';
+  } else {
+    if (!article.articleBody || article._id !== articleId) {
+      dispatch(getArticleById(articleId));
+    } else {
+      setArticlebody(article.articleBody);
+      setGenre(article.genre);
+      setarticleTitle(article.articleTitle);
+    }
+  }
+}, [dispatch, articleId, successUpdate]);
 
-        
-    }, [dispatch, articleId,successUpdate])
 
     const submitHandler = (e) =>{
         e.preventDefault()

@@ -179,10 +179,11 @@ const NewStoryScreen = ({ match, history }) => {
 
         <Form.Group controlId='name'>
           <Form.Label>Genre</Form.Label>
+          <br/>
           <>{genres.map((g,i)=>(<><Badge className='btn btn-primary m-2 p-2' onClick={(e)=>{setGenreSelection(g)}}>{g}</Badge></>))}</>
           <Form.Control
             type='name'
-            disa
+            disabled={true}
             placeholder='Selected Genre will be here'
             value={genre_selected}
           ></Form.Control>

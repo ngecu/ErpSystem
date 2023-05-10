@@ -54,13 +54,16 @@ console.log("percentage is ",percent)
     return true
      }
 
-  const call_both = () =>{
-    if (getGender() && getSuccessfullGraduates() ) {
-      setLoading(false)
-    }
-
-  }
- 
+     const call_both = async () => {
+      setLoading(true);
+    
+      const genderResult = await getGender();
+      const graduatesResult = await getSuccessfullGraduates();
+    
+      if (genderResult && graduatesResult) {
+        setLoading(false);
+      }
+    };
 
 
   if (!userInfo) {
@@ -70,13 +73,14 @@ console.log("percentage is ",percent)
 useEffect(()=>{
   call_both()
 },[])
+
+
   return (
 <>
 {loading ? <Loader/> : (
 
 <Row>
 {/* <SidebarComponent /> */}
-<p>Results will be in a short while</p>
         <Col md={12}>
           <Col md={12}>
           <div className="card">

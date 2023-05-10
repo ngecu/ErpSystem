@@ -182,13 +182,13 @@ const HomeScreen = () => {
 				</figure>
 				
 				<div class="p-2 bg-white shadow rounded-3 position-absolute top-50 start-0 translate-middle-y mt-n7 d-none d-sm-block">
-					<img src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/science.svg" alt="Icon"/>
+					<img src="https://eduport.webestica.com/assets/images/client/science.svg" alt="Icon"/>
 				</div>
 				<div class="p-2 bg-white shadow rounded-3 position-absolute top-0 end-0 me-5">
-					<img src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/angular.svg" alt="Icon"/>
+					<img src="https://eduport.webestica.com/assets/images/client/angular.svg" alt="Icon"/>
 				</div>
 				<div class="p-2 bg-white shadow rounded-3 position-absolute top-50 end-0 translate-middle-y mt-5 ms-5 d-none d-lg-block z-index-9">
-					<img src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/figma.svg" alt="Icon"/>
+					<img src="https://eduport.webestica.com/assets/images/client/figma.svg" alt="Icon"/>
 				</div>
 				
 				<div class="p-3 bg-blur border border-light shadow rounded-4 position-absolute bottom-0 start-0 z-index-9 d-none d-xl-block mb-5 ms-5">

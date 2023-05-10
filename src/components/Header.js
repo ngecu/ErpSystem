@@ -36,7 +36,7 @@ const Header = () => {
             
               {userInfo ? (
 <>
-<LinkContainer to='/analytics' className="nav-link bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0">
+<LinkContainer to='/analytics'>
 <Nav.Link>
 Analytics
 </Nav.Link>

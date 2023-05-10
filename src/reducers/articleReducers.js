@@ -37,7 +37,7 @@ import {
   export const getArticleByIdReducer = (state = { article: {} }, action) => {
     switch (action.type) {
       case GET_ARTICLE_BY_ID_REQUEST:
-        return { loading_articles: true }
+        return { loading_articles: true ,article:{}}
       case GET_ARTICLE_BY_ID_SUCCESS:
         return { loading_articles: false, article: action.payload }
       case GET_ARTICLE_BY_ID_FAIL:
