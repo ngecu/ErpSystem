@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button,Badge } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -19,6 +19,8 @@ const ArticleScreen = ({  history }) => {
   const [articleBody, setArticlebody] = useState('')
   const [genre,setGenre]= useState('')
   const [articleTitle,setarticleTitle]= useState('')
+  const [genres,setGenres] = useState(["Fantasy","Adventures","Mystery","Fairy Tale","Historical Fiction","Science Fiction","Animal Tales","Humor","Poetry","Folklore"])
+
 
   const [loading, setLoading] = useState(false)
   
@@ -57,7 +59,7 @@ useEffect(() => {
       setarticleTitle(article.articleTitle);
     }
   }
-}, [dispatch, articleId, successUpdate]);
+}, [dispatch, articleId, successUpdate,article]);
 
 
     const submitHandler = (e) =>{
@@ -99,11 +101,14 @@ useEffect(() => {
 
             <Form.Group controlId='genre'>
               <Form.Label>Article Genre</Form.Label>
+              <br/>
+              <>{genres.map((g,i)=>(<><Badge className='btn btn-primary m-2 p-2' onClick={(e)=>{setGenre(g)}}>{g}</Badge></>))}</>
               <Form.Control
                 type='text'
+                disabled={true}
                 placeholder='Enter Genre'
                 value={genre}
-                onChange={(e) => setGenre(e.target.value)}
+                // onChange={(e) => setGenre(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
