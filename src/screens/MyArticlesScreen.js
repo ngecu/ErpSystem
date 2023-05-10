@@ -60,24 +60,24 @@ const deleteHandler = (id) => {
 	<Row>
     <SidebarComponent />
     <Col md={9}>
-    <div class="row">
-	<div class="col-12">
-		<div class="card border bg-transparent rounded-3">
-			<div class="card-header bg-transparent border-bottom">
-				<div class="d-sm-flex justify-content-sm-between align-items-center">
-					<h3 class="mb-2 mb-sm-0">My Articles</h3>
-					{/* <a href="#" class="btn btn-sm btn-primary-soft mb-0">View all</a> */}
+    <div className="row">
+	<div className="col-12">
+		<div className="card border bg-transparent rounded-3">
+			<div className="card-header bg-transparent border-bottom">
+				<div className="d-sm-flex justify-content-sm-between align-items-center">
+					<h3 className="mb-2 mb-sm-0">My Articles</h3>
+					{/* <a href="#" className="btn btn-sm btn-primary-soft mb-0">View all</a> */}
 				</div>
 			</div>
 
-			<div class="card-body">
-				<div class="table-responsive border-0 rounded-3">
-					<table class="table table-dark-gray align-middle p-4 mb-0">
+			<div className="card-body">
+				<div className="table-responsive border-0 rounded-3">
+					<table className="table table-dark-gray align-middle p-4 mb-0">
 						<thead>
 							<tr>
-								<th scope="col" class="border-0 rounded-start">Article Title</th>
-								<th scope="col" class="border-0">Date</th>
-								<th scope="col" class="border-0 rounded-end">Action</th>
+								<th scope="col" className="border-0 rounded-start">Article Title</th>
+								<th scope="col" className="border-0">Date</th>
+								<th scope="col" className="border-0 rounded-end">Action</th>
 							</tr>
 						</thead>
 						<tbody>		
@@ -85,14 +85,14 @@ const deleteHandler = (id) => {
 								<tr>
 							
 							<td>
-								<div class="d-flex align-items-center">
+								<div className="d-flex align-items-center">
 								
-									<div class="w-60px">
-									<img src="https://designshack.net/wp-content/uploads/placeholder-image.png" class="rounded" alt=""/>
+									<div className="w-60px">
+									<img src="https://designshack.net/wp-content/uploads/placeholder-image.png" className="rounded" alt=""/>
 									
 									</div>
 									
-									<h6 class="mb-0 ms-2 table-responsive-title">	
+									<h6 className="mb-0 ms-2 table-responsive-title">	
 										{article?.articleTitle}
 									</h6>
 								</div>
