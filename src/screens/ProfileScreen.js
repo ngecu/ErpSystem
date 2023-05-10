@@ -91,10 +91,15 @@ const ProfileScreen = ({history }) => {
       if (!user || !user.firstName || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
+        setFirstnameU(user.firstName)
+        setSecondnameU(user.secondName)
+        setEmail(user.email)
+        setLocation(user.location)
       } else {
         setFirstnameU(user.firstName)
         setSecondnameU(user.secondName)
         setEmail(user.email)
+        setLocation(user.location)
       }
     // }
   }, [dispatch, history, userInfo, success])
@@ -130,14 +135,14 @@ const ProfileScreen = ({history }) => {
 
           <Form onSubmit={submitHandler}>
             <Row>
-
-            <Col md={12}>
+          {userInfo?.profile_pic &&     <Col md={12}>
                   <Form.Group controlId='name'>
 
                   { userInfo.profile_pic.includes("https") ? <img class="avatar-img  border border-white border-3 shadow" style={{width:"100%",height:"200px"}} src={`${userInfo.profile_pic}`} alt=""/> : <img class="avatar-img border border-white border-3 shadow" src={`https://text-image-backend.onrender.com${userInfo.profile_pic}`} style={{width:"100%",height:"200px"}} alt=""/> }
 
                 </Form.Group>
-              </Col>
+              </Col>}
+         
 
               <Col md={12}>
                   <Form.Group controlId='name'>
@@ -292,12 +297,8 @@ const ProfileScreen = ({history }) => {
                       <i className='fas fa-trash'></i> deletee
                     </Button>								</td>
 						</tr>
-							))}		
-							
-
-		
-							
-						
+							))}
+           	
 						</tbody>
 						
 					</table>
@@ -350,14 +351,14 @@ const ProfileScreen = ({history }) => {
 
 				<div class="d-sm-flex align-items-center justify-content-center justify-content-lg-start">
 					
-					<a href="#" class="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</a>
-					
+					<Link to='/login' class="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</Link>
+{/* 					
 					<div class="d-flex align-items-center justify-content-center py-2 ms-0 ms-sm-4">
 						<a data-glightbox="" data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-round btn-primary-shadow mb-0 overflow-visible me-7"> 
 							<i class="fas fa-play"></i>
 							<h6 class="mb-0 ms-3 fw-normal position-absolute start-100 top-50 translate-middle-y">Watch video</h6>
 						</a>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			
@@ -400,7 +401,7 @@ const ProfileScreen = ({history }) => {
 				
 				<div class="p-2 bg-white shadow rounded-3 position-absolute top-50 start-0 translate-middle-y mt-n7 d-none d-sm-block">
 					<img src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/science.svg" alt="Icon"/>
-				</div>
+				</div>  
 				<div class="p-2 bg-white shadow rounded-3 position-absolute top-0 end-0 me-5">
 					<img src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/angular.svg" alt="Icon"/>
 				</div>
@@ -426,16 +427,16 @@ const ProfileScreen = ({history }) => {
 					
 					<ul class="avatar-group mb-0">
 						<li class="avatar avatar-sm">
-							<img class="avatar-img rounded-circle border-white" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/01.jpg" alt="avatar"/>
+							<img class="avatar-img rounded-circle border-white" src="https://eduport.webestica.com/assets/images/avatar/01.jpg" alt="avatar"/>
 						</li>
 						<li class="avatar avatar-sm">
-							<img class="avatar-img rounded-circle border-white" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/02.jpg" alt="avatar"/>
+							<img class="avatar-img rounded-circle border-white" src="https://eduport.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
 						</li>
 						<li class="avatar avatar-sm">
-							<img class="avatar-img rounded-circle border-white" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/03.jpg" alt="avatar"/>
+							<img class="avatar-img rounded-circle border-white" src="https://eduport.webestica.com/assets/images/avatar//03.jpg" alt="avatar"/>
 						</li>
 						<li class="avatar avatar-sm">
-							<img class="avatar-img rounded-circle border-white" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme_files/04.jpg" alt="avatar"/>
+							<img class="avatar-img rounded-circle border-white" src="https://eduport.webestica.com/assets/images/avatar//04.jpg" alt="avatar"/>
 						</li>
 						<li class="avatar avatar-sm">
 							<div class="avatar-img rounded-circle border-white bg-primary">
@@ -446,7 +447,7 @@ const ProfileScreen = ({history }) => {
 				</div>
 				
 				<div class="position-relative">
-					<img src="https://Ola-Image-Ai.webestica.com/assets/images/element/07.png" alt=""/>
+					<img src="https://eduport.webestica.com/assets/images/element/07.png" alt=""/>
 				</div>
 			</div>
 			
@@ -465,7 +466,7 @@ const ProfileScreen = ({history }) => {
 					<span class="display-6 lh-1 text-warning mb-0"><i class="fas fa-tv"></i></span>
 					<div class="ms-4 h6 fw-normal mb-0">
 						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-delay="200" data-purecounter-duration="0">0</h5>
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-delay="200" data-purecounter-duration="0"></h5>
 							<span class="mb-0 h5"></span>
 						</div>
 						<p class="mb-0">Projects</p>
@@ -478,7 +479,7 @@ const ProfileScreen = ({history }) => {
 					<span class="display-6 lh-1 text-blue mb-0"><i class="fas fa-user-tie"></i></span>
 					<div class="ms-4 h6 fw-normal mb-0">
 						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-delay="200" data-purecounter-duration="0">0</h5>
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-delay="200" data-purecounter-duration="0"></h5>
 							<span class="mb-0 h5"></span>
 						</div>
 						<p class="mb-0">Aricles</p>
@@ -491,7 +492,7 @@ const ProfileScreen = ({history }) => {
 					<span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-user-graduate"></i></span>
 					<div class="ms-4 h6 fw-normal mb-0">
 						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="60" data-purecounter-delay="200" data-purecounter-duration="0">60</h5>
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="60" data-purecounter-delay="200" data-purecounter-duration="0"></h5>
 							<span class="mb-0 h5"></span>
 						</div>
 						<p class="mb-0">Images</p>
@@ -504,10 +505,10 @@ const ProfileScreen = ({history }) => {
 					<span class="display-6 lh-1 text-info mb-0"><i class="bi bi-patch-check-fill"></i></span>
 					<div class="ms-4 h6 fw-normal mb-0">
 						<div class="d-flex">
-							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-delay="300" data-purecounter-duration="0">6</h5>
-							<span class="mb-0 h5">K+</span>
+							<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-delay="300" data-purecounter-duration="0"></h5>
+							<span class="mb-0 h5"></span>
 						</div>
-						<p class="mb-0">Certified Courses</p>
+						<p class="mb-0">Users</p>
 					</div>
 				</div>
 			</div>
