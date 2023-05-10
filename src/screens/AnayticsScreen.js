@@ -29,7 +29,7 @@ const AnalyticsScreen = ({ location, history }) => {
 
   const [genders,setGenders] = useState([])
   const [percentt,setPercenttt]= useState(0)
-  const [loading,setLoading]= useState(false)
+  const [loading,setLoading]= useState(true)
 
   const getGender = async () =>{
  const {data} = await axios.get('https://text-image-backend.onrender.com/api/data/gender')
@@ -55,8 +55,6 @@ console.log("percentage is ",percent)
      }
 
   const call_both = () =>{
-    setLoading(true)
-
     if (getGender() && getSuccessfullGraduates() ) {
       setLoading(false)
     }
@@ -78,6 +76,7 @@ useEffect(()=>{
 
 <Row>
 {/* <SidebarComponent /> */}
+<p>Results will be in a short while</p>
         <Col md={12}>
           <Col md={12}>
           <div className="card">

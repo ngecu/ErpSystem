@@ -101,7 +101,7 @@ const deleteHandler = (id) => {
 							
 							
 							<td>
-							<span class="badge bg-primary bg-opacity-10 text-light">{new Date(`${article.createdAt}`).toLocaleString()}</span>
+							<span>{new Date(`${article.createdAt}`).toLocaleString()}</span>
 							</td>
 						
 							<td>

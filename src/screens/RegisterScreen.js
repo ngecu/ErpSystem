@@ -7,7 +7,7 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
 import { auth, signInWithEmailAndPassword,registerWithGoogle, signInWithGoogle } from "../firebase";
-
+import axios from 'axios'
 
 import { USER_REGISTER_FAIL } from '../constants/userConstants'
 import FileUpload from '../components/ImageUpload'
@@ -15,13 +15,13 @@ import FileUpload from '../components/ImageUpload'
 const RegisterScreen = ({history }) => {
   const [firstName, setFirstname] = useState('')
   const [secondName, setSecondname] = useState('')
-
+  const [uploading, setUploading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState(null)
   const [userLocation,setLocation] = useState(null)
-  const [longitude,setLongitude] = useState(null)
+  const [image, setImage] = useState('')
 
   const dispatch = useDispatch()
 
@@ -41,9 +41,33 @@ const RegisterScreen = ({history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else {
-      dispatch(register(firstName,secondName, email,userLocation, password))
+      dispatch(register(firstName,secondName, email,userLocation, password,image))
     }
   } 
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append('image', file)
+    setUploading(true)
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+
+      const { data } = await axios.post('https://text-image-backend.onrender.com/api/upload', formData, config)
+
+      setImage(data)
+      console.log(data)
+      setUploading(false)
+    } catch (error) {
+      console.error(error)
+      setUploading(false)
+    }
+  }
 
   const handleSIgnup = async (l,lo)=>{
     const signupgoogledetails = await registerWithGoogle()
@@ -69,14 +93,17 @@ const RegisterScreen = ({history }) => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
+     
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
 
-      <Button
+      <Button className='btn btn-block'
   onClick={() => {handleSIgnup()}}
 >  Google Register </Button>
-
+<Form.Text className="text-muted">
+          Before You Sign Up,Your Location is required 👇
+        </Form.Text>
 <Form.Group controlId='location'>
           <Form.Label>Location</Form.Label>
           <Form.Control
@@ -85,6 +112,15 @@ const RegisterScreen = ({history }) => {
             value={userLocation}
             onChange={(e) => setLocation(e.target.value)}
           ></Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId='location'>
+          <Form.Label>Profile Pic</Form.Label>
+          <Col md={12}>
+                <input type="file" accept="image/*" 
+      onChange={uploadFileHandler}
+      />
+                </Col>
         </Form.Group>
 
         <h1>OR</h1>
@@ -130,6 +166,15 @@ const RegisterScreen = ({history }) => {
             value={userLocation}
             onChange={(e) => setLocation(e.target.value)}
           ></Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId='location'>
+          <Form.Label>Profile Pic</Form.Label>
+          <Col md={12}>
+                <input type="file" accept="image/*" 
+      onChange={uploadFileHandler}
+      />
+                </Col>
         </Form.Group>
 
    

@@ -51,11 +51,11 @@ const AboutScreen = ({ location, history }) => {
 				<div class="row g-4">
 					
 					<div class="col-10 col-lg-6">
-						<img class="rounded-4" src="https://Ola-Image-Ai.webestica.com/assets/images/about/05.jpg" alt=""/>
+						<img class="rounded-4" src="https://eduport.webestica.com/assets/images/about/05.jpg" alt=""/>
 					</div>
 				
 					<div class="col-12">
-						<img class="rounded-4" src="https://Ola-Image-Ai.webestica.com/assets/images/about/03.jpg" alt=""/>
+						<img class="rounded-4" src="https://eduport.webestica.com/assets/images/about/03.jpg" alt=""/>
 					</div>
 				</div>
 			</div>
@@ -176,7 +176,7 @@ contained.</p>
 				</figure>
 
 				
-				<img src="https://Ola-Image-Ai.webestica.com/assets/images/about/06.jpg" class="rounded" alt=""/>
+				<img src="https://eduport.webestica.com/assets/images/about/06.jpg<" class="rounded" alt=""/>
 			</div>
 
 			<div class="col-lg-7 mt-4 mt-lg-0">
@@ -397,7 +397,7 @@ forfeited</p>
 					<div class="tns-outer" id="tns1-ow"><div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">13 to 16</span>  of 5</div><div id="tns1-mw" class="tns-ovh"><div class="tns-inner" id="tns1-iw"><div class="tiny-slider-inner  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" data-autoplay="true" data-arrow="true" data-dots="false" data-items="4" data-items-lg="3" data-items-md="2" id="tns1" style={{transform: "translate3d(-57.1429%, 0px, 0px)"}}><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/about/09.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/09.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Frances Guerrero</a></h6>
@@ -413,7 +413,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme%20-%20about_files/04.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/about/04.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Larry Lawson</a></h6>
@@ -429,7 +429,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Louis Crawford</a></h6>
@@ -445,7 +445,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/01.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/01.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Carolyn Ortiz</a></h6>
@@ -461,7 +461,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Dennis Barrett</a></h6>
@@ -477,7 +477,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/09.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/09.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Frances Guerrero</a></h6>
@@ -493,7 +493,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Larry Lawson</a></h6>
@@ -509,7 +509,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/10_002.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/10_002.jpg" alt="avatar"/>
 							</div>
 					
 							<h6 class="mb-0"><a href="#">Louis Crawford</a></h6>
@@ -528,7 +528,7 @@ forfeited</p>
 						<div class="text-center tns-item" id="tns1-item0" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/01.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/01.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Carolyn Ortiz</a></h6>
@@ -547,7 +547,7 @@ forfeited</p>
 						<div class="text-center tns-item" id="tns1-item1" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/02.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Dennis Barrett</a></h6>
@@ -566,7 +566,7 @@ forfeited</p>
 						<div class="text-center tns-item" id="tns1-item2" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/09.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/09.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Frances Guerrero</a></h6>
@@ -585,7 +585,7 @@ forfeited</p>
 						<div class="text-center tns-item" id="tns1-item3" aria-hidden="true" tabindex="-1">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="https://Ola-Image-Ai.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Larry Lawson</a></h6>
@@ -604,7 +604,7 @@ forfeited</p>
 						<div class="text-center tns-item tns-slide-active" id="tns1-item4">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme%20-%20about_files/10_002.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Louis Crawford</a></h6>
@@ -621,7 +621,7 @@ forfeited</p>
 					<div class="text-center tns-item tns-slide-cloned tns-slide-active">
 							
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme%20-%20about_files/01.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
 							</div>
 						
 							<h6 class="mb-0"><a href="#">Carolyn Ortiz</a></h6>
@@ -637,7 +637,7 @@ forfeited</p>
 						</div><div class="text-center tns-item tns-slide-cloned tns-slide-active">
 
 							<div class="avatar avatar-xxl mb-3">
-								<img class="avatar-img rounded-circle" src="Ola-Image-Ai%20-%20LMS,%20Education%20and%20Course%20Theme%20-%20about_files/02.jpg" alt="avatar"/>
+								<img class="avatar-img rounded-circle" src="Ohttps://eduport.webestica.com/assets/images/avatar/04.jpg" alt="avatar"/>
 							</div>
 							
 							<h6 class="mb-0"><a href="#">Dennis Barrett</a></h6>

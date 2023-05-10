@@ -71,7 +71,7 @@ export const logout = () => (dispatch) => {
   document.location.href = '/'
 }
 
-export const register = (firstName,secondName, email, password,userLocation,profile_pic) => async (dispatch) => {
+export const register = (firstName,secondName, email, password,userLocation,profile_pic,image) => async (dispatch) => {
   try {
     console.log(email)
     dispatch({
@@ -86,7 +86,7 @@ export const register = (firstName,secondName, email, password,userLocation,prof
 
     const { data } = await axios.post(
       'https://text-image-backend.onrender.com/api/users',
-      { firstName,secondName, email, password,userLocation,profile_pic },
+      { firstName,secondName, email, password,userLocation,profile_pic:image,profile_pic },
       config
     )
 

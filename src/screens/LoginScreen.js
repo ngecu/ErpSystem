@@ -54,7 +54,7 @@ const LoginScreen = ({ history }) => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
-      <Button 
+      <Button className="btn btn-block"
   onClick={() => {handleSignInB()}}
 >Google Sign in </Button>
 
