@@ -59,7 +59,8 @@ useEffect(() => {
       setarticleTitle(article.articleTitle);
     }
   }
-}, [dispatch, articleId, successUpdate,article]);
+}, [dispatch, articleId, successUpdate]);
+
 
 
     const submitHandler = (e) =>{
@@ -88,8 +89,8 @@ useEffect(() => {
           <Message variant='danger'>{error}</Message>
         ) : (
             <Form onSubmit={submitHandler}>
-   <Form.Group controlId='title'>
-              <Form.Label>Article Title {articleTitle}</Form.Label>
+            <Form.Group controlId='title'>
+              <Form.Label>Article Title </Form.Label>
               <Form.Control
                 type='name'
                 placeholder='Enter Title'
