@@ -5,6 +5,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
+import { saveAs } from 'file-saver';
+import Sys_doc from '../screens/System_Documentation.pdf'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -16,6 +18,10 @@ const Header = () => {
     dispatch(logout())
   }
 
+  const handleDownload = () => {
+    saveAs(Sys_doc, 'OLA-API-SYS-DOCS.pdf');
+  };
+  
   return (
     <header>
       <Navbar  expand='lg' collapseOnSelect>
@@ -33,6 +39,12 @@ const Header = () => {
                 </Nav.Link>
               </LinkContainer>
             
+
+              <LinkContainer to='/' onClick={handleDownload} >
+                <Nav.Link>
+                Documentation
+                </Nav.Link>
+              </LinkContainer>
             
               {userInfo ? (
 <>

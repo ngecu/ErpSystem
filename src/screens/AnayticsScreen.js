@@ -107,8 +107,8 @@ setGenders(x)
     if (data) {
      console.log("data is",data)
 
-     const mens_length= data.men
-     const women_length= data.women
+     const mens_length= data.men.length
+     const women_length= data.women.length
       const x = [
      {
       type: 'Men',
@@ -119,6 +119,8 @@ setGenders(x)
       value: women_length,
     }
   ]
+
+  console.log("gender distribution is ",x)
   setGenderD(x)
 
     }

@@ -4,6 +4,8 @@ import { Pie } from '@ant-design/plots';
 
 const DemoPie = ({data}) => {
 
+  console.log("prop data is ",data)
+
   const config = {
     appendPadding: 10,
     data,
