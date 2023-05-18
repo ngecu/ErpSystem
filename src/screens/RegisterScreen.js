@@ -6,7 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
-import { auth, signInWithEmailAndPassword,registerWithGoogle, signInWithGoogle } from "../firebase";
+import { registerWithGoogle } from "../firebase";
 import axios from 'axios'
 
 import { USER_REGISTER_FAIL } from '../constants/userConstants'
