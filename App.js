@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LoginScreen from './screens/LoginScreen'
-// import RegisterScreen from './screens/RegisterScreen'
+import RegisterScreen from './screens/RegisterScreen'
 
 
 // import { createBrowserHistory } from 'history'
@@ -21,7 +21,7 @@ const App = () => {
           <Routes>
     
           <Route path="/login" element={<LoginScreen/>} />
-          {/* <Route path="/register" element={<RegisterScreen/>} /> */}
+          <Route path="/register" element={<RegisterScreen/>} />
          
 
          
