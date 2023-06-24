@@ -19,23 +19,10 @@ const HomeScreen = () => {
   return (
     <>
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-        <Sidebar />
+        <Sidebar admissionNo={userInfo.admissionNo} />
         <div style={{ flex: '1', overflowY: 'auto' }}>
           <Navbar style={{color:"#fff", backgroundColor:"#333 !important"}} expand="lg" className="bg-body-tertiary">
-            <Container fluid>
-              <Navbar.Toggle aria-controls="navbarScroll" />
-              <Navbar.Collapse id="navbarScroll">
-                <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll></Nav>
-                <Nav>
-                  <NavDropdown title={userInfo.admissionNo} id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
+           
           </Navbar>
           <Row className="w-100 m-auto py-2">
             <Col md={7}>

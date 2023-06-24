@@ -9,13 +9,13 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = ({admissionNo}) => {
   return (
     
       <CDBSidebar textColor="#fff" backgroundColor="#333">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
-            ILU
+            {admissionNo}
           </a>
         </CDBSidebarHeader>
 
@@ -34,31 +34,31 @@ const Sidebar = () => {
               <CDBSidebarMenuItem icon="chart-line">Fees</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/units" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/units"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Units</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/examinations" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/examinations"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Examinations</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/hostels" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/hostels" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Hostel Booking</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/messaging" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/messaging"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Messages</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/repository" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/repository"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Repository</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/evaluation" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/evaluation"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Evaluation</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/clearance" target="_blank" activeClassName="activeClicked">
+            <NavLink exact to="/clearance"  activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="exclamation-circle">Clearance</CDBSidebarMenuItem>
             </NavLink>
 
