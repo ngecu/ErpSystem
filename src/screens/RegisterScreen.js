@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -13,20 +13,49 @@ import { USER_REGISTER_FAIL } from '../constants/userConstants'
 import FileUpload from '../components/ImageUpload'
 
 const RegisterScreen = ({history }) => {
-  const [firstName, setFirstname] = useState('')
-  const [secondName, setSecondname] = useState('')
-  const [uploading, setUploading] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [userType, setUserType] = useState('');
+  const [admissionNo, setAdmissionNo] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const [message, setMessage] = useState(null)
-  const [userLocation,setLocation] = useState(null)
-  const [image, setImage] = useState('')
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    // Validate form fields
+    if (!userType || !admissionNo || !password || !confirmPassword) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match')
+    } else {
+      dispatch(register(admissionNo, userType, password))
+    }
+  
+    // Handle form submission
+    console.log('Form submitted');
+    console.log('User Type:', userType);
+    console.log('Admission No:', admissionNo);
+    console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
+    
+    // Reset form fields if needed
+    setUserType('');
+    setAdmissionNo('');
+    setPassword('');
+    setConfirmPassword('');
+  };
+  
 
   const dispatch = useDispatch()
 
-  const userRegister = useSelector((state) => state.userRegister)
-  const { loading, error, userInfo } = userRegister
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
 
 
   useEffect(() => {
@@ -38,180 +67,109 @@ const RegisterScreen = ({history }) => {
 
  const submitHandler = (e) => {
     e.preventDefault()
-    if (password !== confirmPassword) {
-      setMessage('Passwords do not match')
-    } else {
-      dispatch(register(firstName,secondName, email,userLocation, password,image))
-    }
+    // if (password !== confirmPassword) {
+    //   setMessage('Passwords do not match')
+    // } else {
+    //   dispatch(register(firstName,secondName, email,userLocation, password,image))
+    // }
   } 
 
-  const uploadFileHandler = async (e) => {
-    const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('image', file)
-    setUploading(true)
 
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-
-      const { data } = await axios.post('https://text-image-backend.onrender.com/api/upload', formData, config)
-
-      setImage(data)
-      console.log(data)
-      setUploading(false)
-    } catch (error) {
-      console.error(error)
-      setUploading(false)
-    }
-  }
-
-  const handleSIgnup = async (l,lo)=>{
-    const signupgoogledetails = await registerWithGoogle()
-    console.log(signupgoogledetails);
-    const {firstName,email,error,profile_pic} = signupgoogledetails
-    setEmail(email)
-    if (firstName){
-      console.log(l,lo);
-      dispatch(register(firstName,secondName,email,password,userLocation,profile_pic))
-
-    }
-    if (error) {
-      dispatch({
-        type: USER_REGISTER_FAIL,
-        payload:
-          error
-            ? error
-            : error,
-      })
-    }
-  }
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
-     
+         
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
 
-      <Button className='btn btn-block'
-  onClick={() => {handleSIgnup()}}
->  Google Register </Button>
-<Form.Text className="text-muted">
-          Before You Sign Up,Your Location is required 👇
-        </Form.Text>
-<Form.Group controlId='location'>
-          <Form.Label>Location</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Enter Location'
-            value={userLocation}
-            onChange={(e) => setLocation(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+  
+ <Row className="justify-content-center">
+        <Col md={12}>
+          <Card className="p-4 shadow">
+            <div className="text-center">
+              <img src="https://kenya.ilu.edu/wp-content/uploads/2019/12/ilunew-e1590393993557.jpg" alt="MUT" width="30%" />
+              <h4>Account Registration</h4>
+              <p>To register for an Account, kindly fill the form below</p>
+            </div>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group>
+                <Row>
+                  <Col md={4}>
+                    <Form.Label style={{ fontWeight: 'bold' }}>Select Role:</Form.Label>
+                  </Col>
+                  <Col md={4}>
+                    <Form.Check
+                      type="radio"
+                      name="userType"
+                      id="student"
+                      label="Student"
+                      aria-label="Student"
+                      value="Student"
+                      checked={userType === 'Student'}
+                      onChange={(e) => setUserType(e.target.value)}
+                    />
+                  </Col>
+                  <Col md={4}>
+                    <Form.Check
+                      type="radio"
+                      name="userType"
+                      id="employee"
+                      label="Employee"
+                      aria-label="Employee"
+                      value="Employee"
+                      checked={userType === 'Employee'}
+                      onChange={(e) => setUserType(e.target.value)}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+              <Form.Group className="mb-3">
+  <Form.Control
+    type="text"
+    name="admissionNo"
+    placeholder="Student Admission No. / Employee No."
+    required
+    autoFocus
+    className="form-control"
+    value={admissionNo}
+    onChange={(e) => setAdmissionNo(e.target.value)}
+  />
+</Form.Group>
+<Form.Group className="mb-3">
+  <Form.Control
+    type="password"
+    name="password"
+    placeholder="Enter Your Password"
+    className="form-control"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+</Form.Group>
+<Form.Group className="mb-3">
+  <Form.Control
+    type="password"
+    name="confirmPassword"
+    placeholder="Confirm Your Password"
+    className="form-control"
+    value={confirmPassword}
+    onChange={(e) => setConfirmPassword(e.target.value)}
+  />
+</Form.Group>
 
-        <Form.Group controlId='location'>
-          <Form.Label>Profile Pic</Form.Label>
-          <Col md={12}>
-                <input type="file" accept="image/*" 
-      onChange={uploadFileHandler}
-      />
-                </Col>
-        </Form.Group>
-
-        <h1>OR</h1>
-
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='name'>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type='name'
-            placeholder='Enter First name'
-            value={firstName}
-            onChange={(e) => setFirstname(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId='name'>
-          <Form.Label>Second Name</Form.Label>
-          <Form.Control
-            type='name'
-            placeholder='Enter Last name'
-            value={secondName}
-            onChange={(e) => setSecondname(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-
-
-        <Form.Group controlId='location'>
-          <Form.Label>Location</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Enter Location'
-            value={userLocation}
-            onChange={(e) => setLocation(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId='location'>
-          <Form.Label>Profile Pic</Form.Label>
-          <Col md={12}>
-                <input type="file" accept="image/*" 
-      onChange={uploadFileHandler}
-      />
-                </Col>
-        </Form.Group>
-
-   
-
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Confirm password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Button type='submit' variant='primary'>
-          Register
-        </Button>
-      </Form>
-
-      <Row className='py-3'>
-        <Col>
-          Have an Account?{' '}
-          <Link to={'/login'}>
-            Login
-          </Link>
+              <div className="text-center">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+            <div className="text-center mt-3">
+              <Link to="/login">Return to Login</Link>
+            </div>
+          </Card>
         </Col>
       </Row>
+    
     </FormContainer>
   )
 }

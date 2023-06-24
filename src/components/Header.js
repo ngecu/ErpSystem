@@ -6,8 +6,7 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 import { saveAs } from 'file-saver';
-import Sys_doc from '../screens/System_Documentation.pdf'
-import sys_folder from '../screens/tex_image_b2.zip'
+
 
 
 const Header = () => {
@@ -20,13 +19,7 @@ const Header = () => {
     dispatch(logout())
   }
 
-  const handleDownload = () => {
-    saveAs(Sys_doc, 'OLA-API-SYS-DOCS.pdf');
-  };
 
-  const handleDownloadSC = () => {
-    saveAs(sys_folder,"source_code.zip")
-  }
   
   return (
     <header>
@@ -44,19 +37,7 @@ const Header = () => {
                 About
                 </Nav.Link>
               </LinkContainer>
-            
-
-              <LinkContainer to='/' onClick={handleDownload} >
-                <Nav.Link>
-                Documentation
-                </Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to='/' onClick={handleDownloadSC} >
-                <Nav.Link>
-                Source Code
-                </Nav.Link>
-              </LinkContainer>
+          
             
               {userInfo ? (
 <>

@@ -1,103 +1,136 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom'
+import { Form, Button, Row, Col, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
+import { registerWithGoogle } from "../firebase";
+import axios from 'axios'
 
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
-import { USER_LOGIN_FAIL } from '../constants/userConstants'
+import { USER_REGISTER_FAIL } from '../constants/userConstants'
+import FileUpload from '../components/ImageUpload'
 
-const LoginScreen = ({ history }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const LoginScreen = ({history }) => {
+
+
+
+  const [userType, setUserType] = useState('');
+  const [admissionNo, setAdmissionNo] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [message, setMessage] = useState(null)
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    // Validate form fields
+    if ( !admissionNo || !password) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+      dispatch(login({admissionNo, password}))
+    
+  
+    // Handle form submission
+    console.log('Form submitted');
+    console.log('User Type:', userType);
+    console.log('Admission No:', admissionNo);
+    console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
+    
+    // Reset form fields if needed
+    setUserType('');
+    setAdmissionNo('');
+    setPassword('');
+    setConfirmPassword('');
+  };
+  
 
   const dispatch = useDispatch()
 
-  const userLogin = useSelector((state) => state.userLogin)
-  const { loading, error, userInfo } = userLogin
+  const userRegister = useSelector((state) => state.userRegister)
+  const { loading, error, userInfo } = userRegister
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (userInfo) {
-      document.location.href = '/'
-      // history.push(redirect)
+     navigate('/')
     }
-  }, [history, userInfo])
+  }, [history,userInfo]);
+ 
 
-  const submitHandler = (e) => {
+ const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(login({email, password}))
-  }
+    // if (password !== confirmPassword) {
+    //   setMessage('Passwords do not match')
+    // } else {
+    //   dispatch(register(firstName,secondName, email,userLocation, password,image))
+    // }
+  } 
 
-  const handleSignInB = async () => {
-    const details = await signInWithGoogle()
-    console.log("details are ",details)
-    const {firstName,email,error}= details
-    if (firstName) {
-      dispatch(login({firstName,email,auto:true}))
-    }
-    if(error){
-      dispatch({
-        type: USER_LOGIN_FAIL,
-        payload:
-          error
-            ? error
-            : error
-      })
-    }
-    
 
-  }
 
   return (
     <FormContainer>
-      <h1>Sign In</h1>
-      <Button className="btn btn-block"
-  onClick={() => {handleSignInB()}}
->Google Sign in </Button>
-
+         
+      {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
-     
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+  
+ <Row className="justify-content-center">
+        <Col md={12}>
+          <Card className="p-4 shadow">
+            <div className="text-center">
+              <img src="https://kenya.ilu.edu/wp-content/uploads/2019/12/ilunew-e1590393993557.jpg" alt="MUT" width="30%" />
+              <h4>Account Login</h4>
+              <p>To Login to your Account, kindly fill the form below</p>
+            </div>
+            <Form onSubmit={handleSubmit}>
+        
+              <Form.Group className="mb-3">
+  <Form.Control
+    type="text"
+    name="admissionNo"
+    placeholder="Student Admission No. / Employee No."
+    required
+    autoFocus
+    className="form-control"
+    value={admissionNo}
+    onChange={(e) => setAdmissionNo(e.target.value)}
+  />
+</Form.Group>
+<Form.Group className="mb-3">
+  <Form.Control
+    type="password"
+    name="password"
+    placeholder="Enter Your Password"
+    className="form-control"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+</Form.Group>
 
-        <Button type='submit' variant='primary'>
-          Sign In
-        </Button>
-      </Form>
 
-      
-
-
-      <Row className='py-3'>
-        <Col>
-          New Customer?{' '}
-          <Link to={'/register'}>
-            Register
-          </Link>
+              <div className="text-center">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+            <div className="text-center mt-3">
+              <Link to="/register">Create An Account</Link>
+            </div>
+          </Card>
         </Col>
       </Row>
+    
     </FormContainer>
   )
 }

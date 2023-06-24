@@ -26,7 +26,7 @@ import {
   USER_UPDATE_REQUEST,
 } from '../constants/userConstants'
 
-export const login = (loginB) => async (dispatch) => {
+export const login = (loginDetails) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
@@ -39,8 +39,8 @@ export const login = (loginB) => async (dispatch) => {
     }
 
     const { data } = await axios.post(
-      'https://text-image-backend.onrender.com/api/users/login',
-      loginB,
+      '/api/users/login',
+      loginDetails,
       config
     )
 
@@ -71,9 +71,9 @@ export const logout = () => (dispatch) => {
   document.location.href = '/'
 }
 
-export const register = (firstName,secondName, email, password,userLocation,profile_pic,image) => async (dispatch) => {
+export const register = (admissionNo, userType, password) => async (dispatch) => {
   try {
-    console.log(email)
+  
     dispatch({
       type: USER_REGISTER_REQUEST,
     })
@@ -85,8 +85,8 @@ export const register = (firstName,secondName, email, password,userLocation,prof
     }
 
     const { data } = await axios.post(
-      'https://text-image-backend.onrender.com/api/users',
-      { firstName,secondName, email, password,userLocation,profile_pic:image,profile_pic },
+      '/api/users',
+      { admissionNo, userType, password },
       config
     )
 
